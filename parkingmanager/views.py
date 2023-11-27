@@ -62,6 +62,7 @@ class ReserveParkingView(View):
 
 @method_decorator(csrf_exempt, name='dispatch')
 class GetAllBookingsView(View):
+    @method_decorator(login_required)
     def get(self, request):
         bookings = Parking.objects.all()
         booking_list = []
